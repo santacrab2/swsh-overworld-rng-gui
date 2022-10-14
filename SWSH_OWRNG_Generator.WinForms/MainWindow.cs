@@ -17,6 +17,7 @@ namespace SWSH_OWRNG_Generator.WinForms
     {
         private readonly static SwitchConnectionConfig Config = new() { Protocol = SwitchProtocol.WiFi, IP = Properties.Settings.Default.SwitchIP, Port = 6000 };
         public SwitchSocketAsync SwitchConnection = new(Config);
+        public static int TotalAdvances;
         public MainWindow()
         {
             string build = string.Empty;
@@ -752,6 +753,7 @@ namespace SWSH_OWRNG_Generator.WinForms
         {
             InputState0.Text = RetailAdvancesTrackerResultState0.Text;
             InputState1.Text = RetailAdvancesTrackerResultState1.Text;
+            TotalAdvances = 0;
         }
 
         private void SeedFinderMenu_Click(object sender, EventArgs e)
