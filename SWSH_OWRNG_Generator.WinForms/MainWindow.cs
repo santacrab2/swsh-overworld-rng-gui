@@ -904,7 +904,7 @@ namespace SWSH_OWRNG_Generator.WinForms
                     continue;
                 if (uint.TryParse(Program.Window.InputRAMOffset.Text, NumberStyles.HexNumber, null, out uint Offset))
                 {
-                    int TotalAdvances = 0;
+                    TotalAdvances = 0;
                     var (s0, s1) = await GetGlobalRNGState(Offset, token).ConfigureAwait(false);
                     TextboxSetText(Program.Window.InputState0, $"{s0:x16}");
                     TextboxSetText(Program.Window.InputState1, $"{s1:x16}");
@@ -1154,7 +1154,7 @@ namespace SWSH_OWRNG_Generator.WinForms
                 if (pk.Species > 0 && pk.Species <= 899)
                 {
                     TextboxSetText(Program.Window.TextBoxCheckEncounter, output);
-                    var img = SpriteUtil.GetSprite(pk.Species, pk.Form, pk.Gender, pk.FormArgument, pk.HeldItem, false, pk.IsShiny, 8, false, isSquare);
+                    var img = pk.Sprite();
                     PokeSprite.Image = img;
                     if (hasMark)
                     {
