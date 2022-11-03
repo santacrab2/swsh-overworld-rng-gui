@@ -192,6 +192,7 @@ namespace SWSH_OWRNG_Generator.WinForms
             this.InputNPCs = new System.Windows.Forms.TextBox();
             this.CheckFocusWindow = new System.Windows.Forms.CheckBox();
             this.CheckPlayTone = new System.Windows.Forms.CheckBox();
+            this.overworldSpawnViewerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.ImageRareMark)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Results)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.generatorBindingSource)).BeginInit();
@@ -1355,7 +1356,8 @@ namespace SWSH_OWRNG_Generator.WinForms
             this.EncounterLookupMenu,
             this.CramomaticMenu,
             this.LotoIDMenu,
-            this.MenuCloseAdvancesViewerToolStripMenuItem});
+            this.MenuCloseAdvancesViewerToolStripMenuItem,
+            this.overworldSpawnViewerToolStripMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(831, 24);
@@ -1941,6 +1943,13 @@ namespace SWSH_OWRNG_Generator.WinForms
             this.CheckPlayTone.UseVisualStyleBackColor = true;
             this.CheckPlayTone.CheckedChanged += new System.EventHandler(this.CheckPlayTone_CheckedChanged);
             // 
+            // overworldSpawnViewerToolStripMenuItem
+            // 
+            this.overworldSpawnViewerToolStripMenuItem.Name = "overworldSpawnViewerToolStripMenuItem";
+            this.overworldSpawnViewerToolStripMenuItem.Size = new System.Drawing.Size(150, 20);
+            this.overworldSpawnViewerToolStripMenuItem.Text = "Overworld Spawn Viewer";
+            this.overworldSpawnViewerToolStripMenuItem.Click += new System.EventHandler(this.overworldSpawnViewerToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.ClientSize = new System.Drawing.Size(831, 699);
@@ -2252,5 +2261,6 @@ namespace SWSH_OWRNG_Generator.WinForms
         private DataGridViewTextBoxColumn State1;
         public CheckBox CheckFocusWindow;
         public CheckBox CheckPlayTone;
+        private ToolStripMenuItem overworldSpawnViewerToolStripMenuItem;
     }
 }

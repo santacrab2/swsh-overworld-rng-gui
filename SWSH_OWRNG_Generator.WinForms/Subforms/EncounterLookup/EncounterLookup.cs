@@ -125,5 +125,7 @@ namespace SWSH_OWRNG_Generator.WinForms
             MainWindow.CheckShinyLocked.Checked = (bool)EncounterLookupResults[12, e.RowIndex].Value;
             MainWindow.InputFlawlessIVs.Text = EncounterLookupResults[13, e.RowIndex].Value.ToString();
         }
+
+        
     }
 }

@@ -19,6 +19,7 @@ namespace SWSH_OWRNG_Generator.WinForms
         private readonly static SwitchConnectionConfig Config = new() { Protocol = SwitchProtocol.WiFi, IP = Settings.Default.SwitchIP, Port = 6000 };
         public SwitchSocketAsync SwitchConnection = new(Config);
         public static ulong TotalAdvances;
+        public static SAV8SWSH sav;
         public MainWindow()
         {
             string build = string.Empty;
@@ -28,7 +29,6 @@ namespace SWSH_OWRNG_Generator.WinForms
 #endif
             var v = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             Text = "SwSh OWRNG Generator GUI v" + v.Major + "." + v.Minor + "." + v.Build + build;
-
             InitializeComponent();
         }
 
@@ -844,7 +844,7 @@ namespace SWSH_OWRNG_Generator.WinForms
             }
         }
 
-        private bool ShouldReadState = true;
+        public static bool ShouldReadState = true;
 
         private async void Connect_ClickAsync(object sender, EventArgs e)
         {
@@ -859,7 +859,7 @@ namespace SWSH_OWRNG_Generator.WinForms
                 ChangeButtonState(Program.Window.DaySkipButton, true);
                 ChangeButtonState(Program.Window.ShortSkipButton, true);
                 ChangeTextBoxState(Program.Window.SkipAmountInput, true);
-                var sav = await GetFakeTrainerSAV(CancellationToken.None).ConfigureAwait(false);
+                sav = await GetFakeTrainerSAV(CancellationToken.None).ConfigureAwait(false);
                 await GetTIDSID(sav).ConfigureAwait(false);
                 await ReadRNGState(CancellationToken.None).ConfigureAwait(false);
             }
@@ -1241,6 +1241,12 @@ namespace SWSH_OWRNG_Generator.WinForms
         {
             Settings.Default.PlayTone = CheckPlayTone.Checked;
             Settings.Default.Save();
+        }
+
+        private void overworldSpawnViewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using OverworldSpawnViewer owsv = new(this);
+            owsv.ShowDialog();
         }
     }
 }
