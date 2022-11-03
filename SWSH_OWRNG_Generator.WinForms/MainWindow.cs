@@ -18,7 +18,7 @@ namespace SWSH_OWRNG_Generator.WinForms
     {
         private readonly static SwitchConnectionConfig Config = new() { Protocol = SwitchProtocol.WiFi, IP = Settings.Default.SwitchIP, Port = 6000 };
         public SwitchSocketAsync SwitchConnection = new(Config);
-        public static int TotalAdvances;
+        public static ulong TotalAdvances;
         public MainWindow()
         {
             string build = string.Empty;
